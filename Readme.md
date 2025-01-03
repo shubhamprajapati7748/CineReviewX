@@ -2,40 +2,51 @@
 
 ## Table of Contents
 - [About The Project](#about-the-project)
+  - [Key Steps Involved](#key-steps-involved)
+  - [Key Features](#key-features)
 - [About the Data](#about-the-data)
   - [Target Variable](#target-variable)
   - [Dataset Source Link](#dataset-source-link)
 - [Technology Stack](#technology-stack)
 - [Getting Started](#getting-started)
-- [Usage and Configuration](#usage-and-configuration)
 - [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
 - [Acknowledgements](#acknowledgements)
 
+
 ## About The Project
 
-CineReviewX is an IMDB movies sentiment analysis project that aims to predict the sentiment (positive or negative) of movie reviews based on text analysis. Using machine learning techniques, this project processes movie reviews and classifies them into different sentiment categories (positive, negative). The project utilizes natural language processing (NLP) models to analyze large datasets of movie reviews and provide insights into the audience's emotional reactions to films.
+**CineReviewX** is an IMDB movie sentiment analysis project that classifies movie reviews into two categories: positive or negative. Using deep learning techniques, this project processes textual movie reviews to predict the sentiment behind them. By leveraging Recurrent Neural Network (RNN) models, it analyzes large datasets of reviews, providing insights into how audiences emotionally react to films.
 
-The project helps filmmakers, critics, and movie enthusiasts understand how audiences feel about movies based on their reviews, enabling data-driven decision-making in the film industry.
+### Key Steps Involved
+1. **Data Collection:** The project uses a dataset of movie reviews from IMDB, containing both positive and negative feedback from users.
+
+2. **Data Preprocessing:** The raw text data is tokenized and converted into vectors using One-Hot Encoding, transforming the text into a numerical format suitable for analysis.
+
+3. **Model Building:**  The model is constructed using the following layers:
+   - **Embedding Layer:** Converts words into dense vector representations.
+   - **SimpleRNN Layers:** Captures patterns in the sequence of words to understand sentiment.
+   - **Dense Output Layer:** Uses a sigmoid activation function to output a probability value, classifying the sentiment as either positive (1) or negative (0).
+
+4. **Model Training:**   The model is trained on the preprocessed dataset, utilizing appropriate optimization techniques to minimize loss and improve accuracy. The early stopping mechanism monitors validation loss and halts training when performance plateaus.
+
+5. **Model Evaluation:** After training, the model is evaluated based on metrics such as accuracy, precision, recall, and F1-score to assess its performance on unseen data.
+
+6. **Deployment:** A **Streamlit** web application is developed to allow users to input movie reviews and get real-time sentiment predictions.
+
+### Key Features
+- **Sentiment Classification**: Classifies movie reviews as Positive or Negative.
+- **Data Preprocessing**: Prepares and cleans raw text for machine learning models.
+- **Text Vectorization**: Converts raw text into numerical format using One-Hot Encoding.
+- **Modeling**: Implements a Simple RNN for sentiment analysis.
+- **Evaluation Metrics**: Measures model performance using accuracy.
 
 ![cineReviewX](cineReviewX.png)
 
-### Key Features:
-- **Sentiment Classification**: Classifies movie reviews as Positive or Negative.
-- **Data Preprocessing**: Prepares and cleans the raw data for use in machine learning models.
-- **Text Vectorization**: Converts raw text into numerical form using techniques like TF-IDF and Word Embeddings.
-- **Modeling**: Implements Single RNN deep learning models for sentiment analysis.
-- **Evaluation Metrics**: Utilizes precision, recall, accuracy, and F1-score to evaluate model performance.
-
-## About the Data
+ ## About the Data
 
 The dataset contains a collection of IMDB movie reviews and their corresponding sentiment labels (positive or negative). It includes user reviews, movie ratings, and associated metadata for each review. The dataset is preprocessed to remove irrelevant information such as stop words, HTML tags, and special characters.
-
-### Key Features:
-- **Review Text**: The actual text of the review.
-- **Sentiment Label**: A binary label indicating whether the review sentiment is positive (1) or negative (0).
-- **Rating**: The rating of the movie on IMDB (optional depending on the dataset).
 
 ## Target Variable
 
@@ -50,6 +61,7 @@ The dataset used in this project is publicly available on [Kaggle IMDB Dataset](
 - Python
 - Streamlit
 - TensorFlow
+- Tensorboard
 - Scikit-learn
 - Keras
 - Pandas
@@ -58,7 +70,7 @@ The dataset used in this project is publicly available on [Kaggle IMDB Dataset](
 
 ## Getting Started
 
-To get started with this project locally, you’ll need Python 3.8+ installed on your machine along with some necessary Python packages. You can either clone the repository and install dependencies manually or use Docker for an isolated environment.
+To get started with this project locally, you’ll need Python 3.10+ installed on your machine along with some necessary Python packages. You can either clone the repository and install dependencies manually or use Docker for an isolated environment.
 
 ### Installation Steps
 
@@ -68,7 +80,7 @@ To get started with this project locally, you’ll need Python 3.8+ installed on
    - Navigate to the directory where you want to install the project.
    - Run the following command to clone the GitHub repository:
      ```
-     git clone https://github.com/shubhamprajapati7748/CineReviewX
+     git clone https://github.com/shubhamprajapati7748/CineReviewX.git
      ```
 
 2. Create a Virtual Environment (Optional)
@@ -104,18 +116,6 @@ To get started with this project locally, you’ll need Python 3.8+ installed on
 6. Access the Project
    - Visit `http://localhost:8501` in your browser to use the app.
 
-
-## Usage and Configuration
-
-### Web App Usage:
-
-1. **Enter Customer Information**: Input fields for age, gender, geography, and other demographic and account details.
-2. **Click "Predict Churn"**: After entering the data, click the prediction button to view the likelihood of churn and whether the customer is likely to churn or not.
-3. **Prediction Results**: The app will display the churn probability along with a clear message about the likelihood of churn.
-
-### Configuration:
-
-You can modify the `Artifacts/` directory to point to your own trained models, encoders, and scaler files. Make sure the model and encoders are trained and saved in compatible formats (e.g., `.h5`, `.pkl`).
 
 ## Contributing
 
